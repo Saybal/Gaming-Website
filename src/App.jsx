@@ -1,14 +1,13 @@
 import './App.css'
+import Hero from './Component/Hero'
 
 function App() {
   
 
   return (
-    <>
-      <div>
-        <h1 className='font-circular'>Hello World</h1>
-      </div>
-    </>
+    <main className='relative min-h-screen w-screen overflow-x-hidden'>
+      <Hero/>
+    </main>
   )
 }
 
