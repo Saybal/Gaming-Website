@@ -31,7 +31,7 @@ function About() {
           Welcome to the Metagame Layer
               </h2>
 
-              <AnimateTitle title="Disc<b>o</b>ver the world's <br /> l<b>a</b>rgest shared Adventure" comtainerClass="mt-5 text-center text-4xl uppercase leading-[0.8] md:text-[6rem]"/>
+              <AnimateTitle title="Disc<b>o</b>ver the world's <br /> l<b>a</b>rgest shared Adventure" comtainerClass="mt-5 text-center text-4xl !text-black uppercase leading-[0.8] md:text-[6rem]"/>
               
         
         <div className="about-subtext">
@@ -42,7 +42,7 @@ function About() {
           <div id="clip" className="h-dvh w-screen">
               <div className="mask-clip-path about-image">
                   <img
-                    src="/public/img/about.webp"
+                    src="/img/about.webp"
                       alt="about background"
                       className="absolute left-0 top-0 size-full object-cover"
                   />

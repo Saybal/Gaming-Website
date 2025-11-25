@@ -70,7 +70,7 @@ function Hero() {
     });
   })
 
-  const videoSource = (index) => `/public/videos/hero-${index}.mp4`;
+  const videoSource = (index) => `/videos/hero-${index}.mp4`;
 
   const handleClick = () => {
     setClicked(true);
