@@ -1,6 +1,6 @@
 import './App.css'
 import About from './Component/About'
-import Features_Section from './Component/Features_Section'
+import Features_Section from './Component/Featured_Section/Features_Section'
 import Hero from './Component/Hero'
 import NavBar from './Component/NavBar'
 
