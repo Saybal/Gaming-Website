@@ -1,4 +1,5 @@
 import './App.css'
+import About from './Component/About'
 import Hero from './Component/Hero'
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
 
   return (
     <main className='relative min-h-screen w-screen overflow-x-hidden'>
-      <Hero/>
+      <Hero />
+      <About/>
     </main>
   )
 }

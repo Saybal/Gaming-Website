@@ -1,18 +1,22 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CommonBtn from "./CommonBtn";
 import { TiLocationArrow } from "react-icons/ti";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 function Hero() {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [clicked, setClicked] = useState(false);
-  const [isloading, setIsloading] = useState(true);
   const [loadedVideos, setLoadedVideos] = useState(0);
   const [bgvideoIndex, setBgvideoIndex] = useState(1);
+  gsap.registerPlugin(ScrollTrigger);
 
   const totalVideos = 4;
   const nextVideo = useRef(null);
+
+
+  const isloading = loadedVideos < totalVideos - 1;
 
   // GSAP Hooks and Functions
   useGSAP(
@@ -48,6 +52,24 @@ function Hero() {
     { dependencies: [currentIndex], revertOnUpdate: true }
   );
 
+  useGSAP(() => {
+    gsap.set("#video-frame", {
+      clipPath: 'polygon(14% 0%, 72% 0%, 90% 90%, 0% 100%)',
+      borderRadius: "0 0 40% 10%",
+    })
+    gsap.from("#video-frame", {
+      clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+      borderRadius: "0 0 0 0",
+      scrollTrigger: {
+        trigger: "#video-frame",
+        start: "center center",
+        end: "bottom center",
+        scrub: true,
+      },
+      ease: "power1.inOut",
+    });
+  })
+
   const videoSource = (index) => `/public/videos/hero-${index}.mp4`;
 
   const handleClick = () => {
@@ -64,6 +86,16 @@ function Hero() {
 
   return (
     <div className="relative w-screen overflow-x-hidden h-dvh">
+       {isloading && (
+        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+          {/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
+          <div className="three-body">
+            <div className="three-body__dot"></div>
+            <div className="three-body__dot"></div>
+            <div className="three-body__dot"></div>
+          </div>
+        </div>
+      )}
       <div
         id="video-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-3-75"
@@ -127,6 +159,9 @@ function Hero() {
           </div>
         </div>
       </div>
+       <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
+        G<b>A</b>MING
+      </h1>
     </div>
   );
 }
