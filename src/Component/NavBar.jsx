@@ -80,10 +80,10 @@ const NavBar = () => {
           <div className="flex items-center gap-7">
             <img src="/img/logo.png" alt="logo" className="w-10" />
             <CommonBtn
-              id="porduct-button"
+              id="product-button"
               title="Products"
               rightIcon={<TiLocationArrow />}
-              containerClass="bg-blue-2-50 md:flex hidden items-center justify-center gap-1"
+              containerClass="bg-blue-2-50 px-7 py-3 md:flex hidden items-center justify-center gap-1"
             />
           </div>
 

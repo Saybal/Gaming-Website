@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Featured_Card from "./Featured_Card";
 import { TiLocationArrow } from "react-icons/ti";
 import axios from "axios";
+import Tilted_Card from "./Tilted_Card";
 
 const Features_Section = () => {
   const [featured_card_Data, setfeatured_card_Data] = useState([]);
@@ -59,19 +60,19 @@ const Features_Section = () => {
           </p>
         </div>
 
-        <div className={featured_card_Data[0].wrapperClass}>
+        <Tilted_Card className={featured_card_Data[0].wrapperClass}>
           <Featured_Card
             src={featured_card_Data[0].src}
             title={(formatTitle(featured_card_Data[0].title))}
             description={featured_card_Data[0].description}
             isComingSoon={featured_card_Data[0].isComingSoon}
           />
-        </div>
+        </Tilted_Card>
 
         {/* Grid UI */}
         <div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
           {featured_card_Data.slice(1).map((item) => (
-            <div key={item.id} className={item.wrapperClass}>
+            <Tilted_Card key={item.id} className={item.wrapperClass}>
               {item.type === "card" && (
                 <Featured_Card
                   src={item.src}
@@ -92,7 +93,7 @@ const Features_Section = () => {
                   className="size-full object-cover object-center"
                 />
               )}
-            </div>
+            </Tilted_Card>
           ))}
         </div>
       </div>

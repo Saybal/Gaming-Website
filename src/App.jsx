@@ -1,8 +1,11 @@
 import "./App.css";
 import About from "./Component/About";
+import Contact from "./Component/Contact";
 import Features_Section from "./Component/Featured_Section/Features_Section";
+import Footer from "./Component/Footer";
 import Hero from "./Component/Hero";
 import NavBar from "./Component/NavBar";
+import Story from "./Component/Story";
 
 // #e7e5e4
 
@@ -59,6 +62,9 @@ function App() {
       <Hero />
       <About />
       <Features_Section />
+      <Story />
+      <Contact />
+      <Footer/>
     </main>
   );
 }
